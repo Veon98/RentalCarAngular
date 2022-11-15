@@ -1,0 +1,24 @@
+<br><br>
+<h2>Riepilogo</h2>
+
+<div id="container">
+  <form (ngSubmit)="sendData()" [formGroup]="formPren" *ngIf="formPren">
+    <label>Data inizio:</label><br><br>
+    <input type="date" formControlName="dataI"><br><br>
+    <label>Data fine:</label><br><br>
+    <input type="date" formControlName="dataF"><br><br>
+    <label>Data prenotazione:</label><br><br>
+    <input type="date" formControlName="dataP"><br><br>
+    <label>Id utente:</label><br><br>
+    <input type="text" formControlName="id_user"><br><br>
+    <label>Id auto:</label><br><br>
+    <input type="text" formControlName="id_car"><br><br>
+    <label>Approvazione:</label><br><br>
+    <select formControlName="isApprovata">  <!--attr.disabled deve attivarsi a seconda dal ruolo dell'utente-->
+      <option value="true">Approvata</option>
+      <option value="false">Non approvata</option>
+    </select>
+    <br><br><br><br>
+    <input type="submit" value="Conferma"/>
+  </form>
+</div>

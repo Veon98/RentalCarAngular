@@ -1,0 +1,21 @@
+<br>
+<h2>Riepilogo ordine</h2>
+
+<div id="container" *ngIf="id_a; else elseBlock">
+  <form>
+    <label>Auto:</label><br><br>
+    <input type="text" value="{{marca}} {{modello}}" [attr.disabled]="id_a"><br><br>
+    <label>Data inizio noleggio:</label><br><br>
+    <input type="date" value="{{dataI_tmp}}" [attr.disabled]="dataI_tmp"><br><br>
+    <label>Data fine noleggio:</label><br><br>
+    <input type="date" value="{{dataF_tmp}}" [attr.disabled]="dataF_tmp"><br><br>
+    <label>Data prenotazione:</label><br><br>
+    <input type="date" value="{{dataP}}" [attr.disabled]="dataP"><br><br>
+    <hr>
+    <app-bottone [reusableBtn]="savePrenBtn" (customOnClick)="addPren()"></app-bottone>
+  </form>
+</div>
+<ng-template #elseBlock>
+  <p>Si è verificato un errore!</p>
+  <app-bottone [reusableBtn]="errorBtn" (customOnClick)="returnHome()"></app-bottone>
+</ng-template>

@@ -1,0 +1,51 @@
+.customBtn {
+  color: black;
+  background-color: limegreen;
+  border: 1px solid black;
+}
+
+
+.sortBtn {
+  color: black;
+  background-color: whitesmoke;
+  border: 1px solid lightslategray;
+}
+
+
+.pageBtn {
+  color: black;
+  background-color: whitesmoke;
+  border: 1px solid lightgray;
+  margin: 5px;
+}
+
+
+.addBtn {
+  color: whitesmoke;
+  background-color: green;
+  border: none;
+}
+
+
+.updBtn {
+  text: "Noleggia";
+  color: whitesmoke;
+  background-color: #0275d8;
+  border: none;
+  margin: 5px;
+}
+
+.updBtn:hover {
+  background-color: #026dca;
+}
+
+
+.delBtn {
+  color: whitesmoke;
+  background-color: red;
+  border: none;
+  margin: 5px;
+}
+
+
+

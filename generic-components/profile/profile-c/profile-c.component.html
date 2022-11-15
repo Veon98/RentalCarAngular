@@ -1,0 +1,11 @@
+<br>
+<h2>Profilo</h2><br>
+<h4>Benvenuto <b style="color: #0275d8">{{loggedUser}}</b>!</h4>
+
+<app-bottone *ngIf="loggedRole!='ADMIN'" [reusableBtn]="updDatiUserBtn" (customOnClick)="updDatiUser()"></app-bottone>
+<br *ngIf="loggedRole!='ADMIN'">
+<app-bottone *ngIf="loggedRole=='ADMIN'" [reusableBtn]="showUsersBtn" (customOnClick)="showUsers()"></app-bottone>
+<br *ngIf="loggedRole!='ADMIN'">
+<app-bottone *ngIf="loggedRole=='ADMIN'" [reusableBtn]="showCarsBtn" (customOnClick)="showCars()"></app-bottone>
+<br *ngIf="loggedRole!='ADMIN'">
+<app-bottone *ngIf="loggedRole=='ADMIN'" [reusableBtn]="showPrensBtn" (customOnClick)="showPrens()"></app-bottone>

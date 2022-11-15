@@ -1,0 +1,58 @@
+
+<br>
+<div *ngFor="let act of tableConfig.actions" style="margin-bottom: 10px;">
+    <app-bottone *ngIf="act.showInRow==false" [reusableBtn]="getBtnConfig(act.action)" (click)="actionSelector(null, act.action)"></app-bottone>  <!--condizione + caso true per essere visibile solo all'admin-->
+</div>
+
+
+<!--SORTING-->
+<label>Ordina per:</label>
+<select class="selectBox" [(ngModel)] = tableConfig.order.orderCol ngModel (ngModelChange)="resetPageNum()">   <!--ngModel effettua il data binding di orderConf.orderCol da qui al component.ts-->
+  <option *ngFor="let h of tableConfig.header" value="{{h.key}}">{{h.label}}</option>
+</select>
+<app-bottone [reusableBtn]="sortBtn" (customOnClick)="changeSortType()"></app-bottone>
+<!--<p>Tipo ordine attuale: {{tableConfig.order.orderType}}</p>-->
+
+
+<!--FILTER-->
+<input id="filterBox" placeholder="Cerca..." [(ngModel)] = 'tableConfig.filter.filterString'>   <!--ngModel effettua il dataBinding col ts (come se creasse l'istanza di un form)-->
+<label>Cerca per:</label>
+<select class="selectBox" [(ngModel)] = 'tableConfig.filter.filterCol'>
+  <option *ngFor="let h of tableConfig.header" value="{{h.key}}">{{h.label}}</option>
+</select>
+
+
+<!--VIEW-->
+<table class="table table-hover">
+  <thead class="table-dark">
+  <tr>
+    <th style="width: 20%;" scope="row" *ngFor="let h of tableConfig.header">{{h.label}}</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let tmpData of data | filterPipe: tableConfig.filter.filterString : tableConfig.filter.filterCol | sortingPipe:[tableConfig.order.orderCol, tableConfig.order.orderType] | paginationPipe: tableConfig.pagination.pageNum : tableConfig.pagination.itemPerPage">  <!--il filtro di ricerca avviene su tutto l'array .Il primo sorting viene fatto su tutto l'array (in un caso vero non è necessario perchè i dati arrivano già ordinati). Poi avviene la paginazione e un secondo sort sui valori paginati-->
+    <td *ngFor="let h of tableConfig.header">{{tmpData[h.key]}}</td>   <!--equivalente di tmpUser.id, tmpUser.nome, tmpUser.cognome, tmpUser.mail, ma sfrutta le key dell'header-->
+    <td *ngFor="let act of tableConfig.actions">
+      <app-bottone *ngIf="act.showInRow"  [reusableBtn]="getBtnConfig(act.action)" (click)="actionSelector(tmpData, act.action)"></app-bottone>
+    </td>
+  </tr>
+  </tbody>
+
+
+  <!--PAGINATION-->
+  <app-bottone [reusableBtn]="firstPageBtn" (customOnClick)="resetPageNum()"></app-bottone>
+  <app-bottone [reusableBtn]="prevPageBtn" (customOnClick)="previousPage()"></app-bottone>
+  <app-bottone [reusableBtn]="nextPageBtn" (customOnClick)="nextPage()"></app-bottone>
+  <app-bottone [reusableBtn]="lastPageBtn" (customOnClick)="getLastPage()"></app-bottone>
+
+  <label>Numero righe:</label>
+  <select class="selectBox" [(ngModel)] = 'tableConfig.pagination.itemPerPage'   ngModel (ngModelChange)="resetPageNum()">
+    <option *ngFor="let pageRow of tableConfig.pagination.arrayPages" value="{{pageRow}}">{{pageRow}}</option>
+  </select>
+
+</table>
+
+
+
+

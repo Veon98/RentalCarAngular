@@ -1,0 +1,3 @@
+<div class="container">
+  <app-tabella-r [tableConfig]="tabConfSpec" [data]="utenti" (eventOut)="actionShower($event)"></app-tabella-r>  <!--nelle quadre teìroviamo gli @input che sfruttano le impostazioni specifiche del parent e nelle tonde gli @output, in cui si può notare l'uso di $event che intercetta i valori dal child-->
+</div>

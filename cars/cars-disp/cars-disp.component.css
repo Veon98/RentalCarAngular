@@ -1,0 +1,11 @@
+.updBtn {
+  text: "Noleggia";
+  color: whitesmoke;
+  background-color: #0275d8;
+  border: none;
+  margin: 5px;
+}
+
+.updBtn:hover {
+  background-color: #026dca;
+}

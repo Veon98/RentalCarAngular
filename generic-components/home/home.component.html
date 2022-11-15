@@ -1,0 +1,23 @@
+<br>
+<h2>Home</h2>
+<br>
+<div id="container">
+  <h3>Cerca un'auto da noleggiare:</h3><hr>
+  <form (ngSubmit)="sendData()" [formGroup]="formDisp" *ngIf="formDisp">
+    <label>Data inizio:</label><br><br>
+    <input type="date" formControlName="dataI" (input)="checkDate()"><br><br>
+    <label>Data fine:</label><br><br>
+    <input type="date" formControlName="dataF" (input)="checkDate()"><br><br>
+    <br>
+    <input type="submit" value="Cerca auto disponibili"/>
+  </form>
+</div>
+
+<div *ngIf="dataI!=null&&dataF!=null">
+  <hr>
+  <app-cars-disp [arrDateIn]="arrDate"></app-cars-disp>
+</div>
+
+
+
+

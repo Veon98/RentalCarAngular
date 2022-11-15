@@ -1,0 +1,13 @@
+<br><br>
+<h2>Login</h2>
+
+<div id="container">
+  <form (ngSubmit)="sendData()" [formGroup]="formLogin" *ngIf="formLogin">
+    <label>Codice Fiscale:</label><br><br>
+    <input type="text" placeholder="Codice Fiscale" formControlName="username"><br><br>
+    <label>Password:</label><br><br>
+    <input type="password" placeholder="Password" formControlName="password"><br><br>
+    <br>
+    <input type="submit" value="Login"/>
+  </form>
+</div>

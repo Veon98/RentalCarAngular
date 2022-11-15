@@ -1,0 +1,22 @@
+<br><br>
+<h2>Form Utente</h2>
+
+<div id="container">
+  <form (ngSubmit)="sendData()" [formGroup]="formUser" *ngIf="formUser">
+    <label>Codice Fiscale:</label><br><br>
+    <input type="text" placeholder="Codice Fiscale" formControlName="codFiscale" (input)="checkCodFis()"><br><br>
+    <label>Nome:</label><br><br>
+    <input type="text" placeholder="Nome" formControlName="nome"><br><br>
+    <label>Cognome:</label><br><br>
+    <input type="text" placeholder="Cognome" formControlName="cognome"><br><br>
+    <label>Password:</label><br><br>
+    <input type="password" placeholder="Password" formControlName="pwd"><br><br>
+    <label *ngIf="ruolo=='ADMIN'">Ruolo:</label><br><br>
+    <select formControlName="isAdmin" *ngIf="ruolo=='ADMIN'">
+      <option value="true">Admin</option>
+      <option value="false">Customer</option>
+    </select>
+    <br><br><br><br>
+    <input type="submit" value="Conferma"/>
+  </form>
+</div>

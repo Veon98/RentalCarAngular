@@ -1,0 +1,17 @@
+<div class="topnav">
+  <a class="link" href="javascript:void(0)" [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a>
+
+  <a class="link" href="javascript:void(0)" [routerLink]="['/profilo']" [routerLinkActive]="['active']">Profilo</a>
+
+  <a *ngIf="userRole=='ADMIN'" class="link" href="javascript:void(0)" [routerLink]="['/users']" [routerLinkActive]="['active']">Utenti</a>
+
+  <a *ngIf="userRole=='ADMIN'" class="link" href="javascript:void(0)" [routerLink]="['/cars']" [routerLinkActive]="['active']">Auto</a>
+
+  <a *ngIf="userLog!=null" class="link" href="javascript:void(0)" [routerLink]="['/prens']" [routerLinkActive]="['active']">Prenotazioni</a>
+
+  <a *ngIf="userLog==null" style="margin-left: 65%;" class="link" href="javascript:void(0)" [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a>
+  <a *ngIf="userLog!=null" style="margin-left: 65%; color: #ff3300;" class="link" (click)="logout()" [routerLinkActive]="['active']">Logout</a>
+</div>
+
+
+<router-outlet></router-outlet>

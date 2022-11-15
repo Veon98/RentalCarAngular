@@ -1,0 +1,21 @@
+<br><br>
+<h2>Form Auto</h2>
+
+<div id="container">
+  <form (ngSubmit)="sendData()" [formGroup]="formCar" *ngIf="formCar">
+    <label>Targa:</label><br><br>
+    <input type="text" placeholder="Targa" formControlName="targa" (input)="checkTarga()"><br><br>
+    <label>Marca:</label><br><br>
+    <input type="text" placeholder="Marca" formControlName="marca"><br><br>
+    <label>Modello:</label><br><br>
+    <input type="text" placeholder="Modello" formControlName="modello"><br><br>
+    <label *ngIf="ruolo=='ADMIN'">Disponibilità:</label><br><br>   <!--attr.disabled deve attivarsi a seconda dal ruolo dell'utente-->
+    <select formControlName="isDisponibile" *ngIf="ruolo=='ADMIN'">
+      <option value="true">Disponibile</option>
+      <option value="false">Non disponibile</option>
+    </select>
+    <br><br><br><br>
+    <input type="submit" value="Conferma"/>
+  </form>
+</div>
+
