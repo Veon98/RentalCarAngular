@@ -101,9 +101,9 @@ export class TabellaRComponent implements OnInit {
   //ACTIONS
   @Output() eventOut = new EventEmitter();  //permette di passare i dati prelevati dal child al parent
 
-  actionSelector(tmpObj: any, act: string) {  //recupera i dati dal child.html per inviarli al parent
+  actionSelector(data: any, act: string) {  //recupera i dati dal child.html per inviarli al parent
     this.eventOut.emit({  //intercettati di $event
-      dataSpec: tmpObj,
+      dataSpec: data,
       action: act
     });
   }
